@@ -33,7 +33,7 @@ class SimpleKMeans():
                                           metric='euclidean',
                                           sample_size=self.sample_size)))
 
-    def fit(self, X, y):
+    def fit(self):
         data = scale(self.digits.data)
         n_samples, n_features = data.shape
         n_digits = len(np.unique(self.digits.target))

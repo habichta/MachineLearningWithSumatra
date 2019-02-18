@@ -205,6 +205,8 @@ class ConfigAction(Action):
                 return None
 
         def construct(config_dic):
+            pprint("inside:",config_dic)
+
             if config_dic is None:
                 return None
             elif "class" in config_dic:
@@ -229,6 +231,7 @@ class ConfigAction(Action):
         """
         pprint(self.config)
         model = construct(self.config)
+        pprint(model)
 
         if hasattr(model, "set_save_path"):
             model.set_save_path(self.save_path)

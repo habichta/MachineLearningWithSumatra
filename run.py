@@ -97,8 +97,8 @@ class Action(object):
     def act(self):
         if self.args.debug:
             try:
-                self.model = self._load_model()
-                getattr(self, self.args.action)()
+                self.model = self._load_model() #Load model
+                getattr(self, self.args.action)() #Call action in model (fit)
                 self._save()
                 print(self.save_path)
             except Exception as err:
@@ -197,7 +197,10 @@ class ConfigAction(Action):
             np.save(X_path, self.X_new)
 
     def _load_model(self):
-        # recursively construct python objects
+        # recursively construct python objects. The config file contains the class, which is
+        #created with inputs given in "param" these inputs can be any python constructs/primitive types
+        # If a model (object) has an object as an argument in its __init__, then this model can
+        # be constructed in the same way (with a class and params key in the yaml file).
         def get_params(dic):
             if "params" in dic:
                 return dic["params"]
@@ -214,7 +217,7 @@ class ConfigAction(Action):
                 if "params" not in config_dic:
                     return config_dic["class"]()
                 else:
-                    return config_dic["class"](**config_dic["params"])
+                    return config_dic["class"](**config_dic["params"]) #Create object and inject constructs from params values as __init__ parameters
             # resolve all current params
             else:
                 for k, v in config_dic.items():

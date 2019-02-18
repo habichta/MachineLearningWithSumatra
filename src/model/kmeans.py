@@ -12,7 +12,7 @@ from sklearn.preprocessing import scale
 
 class SimpleKMeans():
 
-    def __inits__(self):
+    def __init__(self):
         self.digits = load_digits()
         self.labels = self.digits.target
         self.sample_size = 300

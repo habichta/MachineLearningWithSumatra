@@ -310,6 +310,7 @@ class ModelAction(Action):
 
 if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser(description="Scikit runner.")
+    arg_parser = argparse.ArgumentParser(description="Scikit runner.")
 
     arg_parser.add_argument(
         "-S",

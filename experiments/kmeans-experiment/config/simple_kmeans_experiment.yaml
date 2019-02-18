@@ -1,1 +1,4 @@
 class: src.model.kmeans.SimpleKMeans
+params:
+  test:
+    a: 'hello'

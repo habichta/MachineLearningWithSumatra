@@ -147,7 +147,7 @@ class ConfigAction(Action):
         super(ConfigAction, self).__init__(args, more_args)
         self.raw_config = ConfigParser().parse_raw(config)
         self.config = ConfigParser().parse(config)
-        # self.pprint_config(self.raw_config)
+        self.pprint_config(self.raw_config)
         self.pprint_config(self.config)
         self.act()
 
@@ -227,6 +227,7 @@ class ConfigAction(Action):
         else:
             model = self.config["class"]()
         """
+        pprint(self.config)
         model = construct(self.config)
 
         if hasattr(model, "set_save_path"):

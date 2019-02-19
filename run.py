@@ -337,7 +337,7 @@ if __name__ == '__main__':
                             help="Action to perform.",
                             required=True)
 
-    arg_parser.add_argument("smt_label", nargs="?",required=True)
+    arg_parser.add_argument("smt_label", nargs="?", default="debug")
     arg_parser.add_argument("--debug", action="store_true")
 
     args, more_args = arg_parser.parse_known_args()

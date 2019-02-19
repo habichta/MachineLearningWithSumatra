@@ -29,7 +29,7 @@
   "on_changed": "error",
   "description": "",
   "data_label": "cmdline",
-  "_most_recent": "20190219-150622",
+  "_most_recent": "test",
   "input_datastore": {
     "type": "sumatra.datastore.filesystem.FileSystemDataStore",
     "root": "/home/arthur/Documents/Tests/sumatraTest/MachineLearningWithSumatra/data"

@@ -344,6 +344,8 @@ if __name__ == '__main__':
 
     args, more_args = arg_parser.parse_known_args()
 
+    pprint(args)
+
     more_args = parse_more_args(more_args)
 
     if args.config is None:

@@ -32,16 +32,14 @@ class SimpleKMeans():
 
     def fit(self, X, y):
         X = self.data.X
-        n_samples, n_features = self.data.shape
-        n_digits = len(np.unique(self.data.y))
 
         print("n_digits: %d, \t n_samples %d, \t n_features %d"
-              % (n_digits, n_samples, n_features))
+              % (self.data.n_digits, self.data.n_samples, self.data.n_features))
 
         print(82 * '_')
         print('init\t\ttime\tinertia\thomo\tcompl\tv-meas\tARI\tAMI\tsilhouette')
 
-        self.bench_k_means(KMeans(init=self.config.init, n_clusters=n_digits, n_init=10),
+        self.bench_k_means(KMeans(init=self.config.init, n_clusters=self.data.n_digits, n_init=10),
                            name=self.config.init, data=X)
 
         print(82 * '_')

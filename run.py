@@ -149,7 +149,7 @@ class ConfigAction(Action):
         super(ConfigAction, self).__init__(args, more_args)
         self.raw_config = ConfigParser().parse_raw(config)
         self.config = ConfigParser().parse(config)
-        self.pprint_config(self.raw_config)
+        # self.pprint_config(self.raw_config)
         self.pprint_config(self.config)
         self.act()
 
@@ -210,8 +210,6 @@ class ConfigAction(Action):
                 return None
 
         def construct(config_dic):
-            print("inside:", config_dic)
-
             if config_dic is None:
                 return None
             elif "class" in config_dic:

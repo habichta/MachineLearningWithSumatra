@@ -33,7 +33,7 @@ class SimpleKMeans():
               % (self.data.n_digits, self.data.n_samples, self.data.n_features))
 
         print(82 * '_')
-        print('init\t\ttime\tinertia\thomo\tcompl\tv-meas\tARI\tAMI\tsilhouette')
+        print('init\t\ttime\tinertia\thomo\tcompl\tv-meas\tARI\tAMI')
 
         self.bench_k_means(KMeans(init=self.config.init, n_clusters=self.data.n_digits, n_init=10),
                            name=self.config.init, data=self.data)

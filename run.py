@@ -344,7 +344,8 @@ if __name__ == '__main__':
 
     args, more_args = arg_parser.parse_known_args()
 
-    pprint(args)
+    if "smt_label" in getargspec(args):
+        print(args.smt_label)
 
     more_args = parse_more_args(more_args)
 

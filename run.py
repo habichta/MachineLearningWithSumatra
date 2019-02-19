@@ -319,8 +319,6 @@ class ModelAction(Action):
 
 if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser(description="Scikit runner.")
-    arg_parser = argparse.ArgumentParser(description="Scikit runner.")
-
     arg_parser.add_argument(
         "-S",
         "--save-folder-prefix",
@@ -339,12 +337,12 @@ if __name__ == '__main__':
                             help="Action to perform.",
                             required=True)
 
-    arg_parser.add_argument("smt_label", nargs="?", default="debug")
+    arg_parser.add_argument("smt_label", nargs="?", default="debug", required=True)
     arg_parser.add_argument("--debug", action="store_true")
 
     args, more_args = arg_parser.parse_known_args()
 
-    if "smt_label" in getargspec(args):
+    if "smt_label" in args:
         print(args.smt_label)
 
     more_args = parse_more_args(more_args)

@@ -155,6 +155,7 @@ class ConfigAction(Action):
 
     def fit(self):
         pprint(getargspec(self.model.fit).args)
+
         if "args" in getargspec(self.model.fit).args:
             self.model.fit(self.X, self.y, args=self.more_args)
         else:

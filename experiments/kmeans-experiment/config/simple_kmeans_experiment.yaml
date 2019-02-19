@@ -1,1 +1,8 @@
 class: src.model.kmeans.SimpleKMeans
+params:
+  config:
+    class: src.config.config.KMeansConfig
+    params:
+      init: kmeans++
+  data:
+    class: src.data.datasources.SKLearnDigits

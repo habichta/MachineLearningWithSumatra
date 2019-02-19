@@ -122,7 +122,9 @@ class Action(object):
                 time.gmtime()) + "-debug")
 
         path = os.path.join(self.args.save_folder_prefix, self.time_stamp)
-        os.mkdir(os.path.normpath(path))
+
+        if not os.path.isdir(os.path.normpath(path)):
+            os.mkdir(os.path.normpath(path))
 
         self.save_path = path
 

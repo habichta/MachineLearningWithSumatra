@@ -3,6 +3,6 @@ params:
   config:
     class: src.config.config.KMeansConfig
     params:
-      init: kmeans++
+      init: k-means++
   data:
     class: src.data.datasources.SKLearnDigits

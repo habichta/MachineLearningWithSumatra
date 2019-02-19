@@ -19,7 +19,7 @@ class SimpleKMeans():
         t0 = time()
 
         estimator.fit(data.X)
-        print('%-9s\t%.2fs\t%i\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'
+        print('%-9s\t%.2fs\t%i\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'
               % (name, (time() - t0), estimator.inertia_,
                  metrics.homogeneity_score(data.y, estimator.labels_),
                  metrics.completeness_score(data.y, estimator.labels_),

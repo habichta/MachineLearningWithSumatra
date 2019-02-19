@@ -21,17 +21,16 @@ class SimpleKMeans():
     def bench_k_means(self, estimator, name, data):
         t0 = time()
 
-        estimator.fit(data)
+        estimator.fit(data.X)
         print('%-9s\t%.2fs\t%i\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'
               % (name, (time() - t0), estimator.inertia_,
-                 metrics.homogeneity_score(self.labels, estimator.labels_),
-                 metrics.completeness_score(self.labels, estimator.labels_),
-                 metrics.v_measure_score(self.labels, estimator.labels_),
-                 metrics.adjusted_rand_score(self.labels, estimator.labels_),
-                 metrics.adjusted_mutual_info_score(self.labels, estimator.labels_)))
+                 metrics.homogeneity_score(self.data.y, estimator.labels_),
+                 metrics.completeness_score(self.data.y, estimator.labels_),
+                 metrics.v_measure_score(self.data.y, estimator.labels_),
+                 metrics.adjusted_rand_score(self.data.y, estimator.labels_),
+                 metrics.adjusted_mutual_info_score(self.data.y, estimator.labels_)))
 
     def fit(self, X, y):
-        X = self.data.X
 
         print("n_digits: %d, \t n_samples %d, \t n_features %d"
               % (self.data.n_digits, self.data.n_samples, self.data.n_features))
@@ -40,6 +39,6 @@ class SimpleKMeans():
         print('init\t\ttime\tinertia\thomo\tcompl\tv-meas\tARI\tAMI\tsilhouette')
 
         self.bench_k_means(KMeans(init=self.config.init, n_clusters=self.data.n_digits, n_init=10),
-                           name=self.config.init, data=X)
+                           name=self.config.init, data=self.data)
 
         print(82 * '_')

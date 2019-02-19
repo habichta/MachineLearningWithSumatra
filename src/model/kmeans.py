@@ -5,9 +5,6 @@ from time import time
 import numpy as np
 from sklearn import metrics
 from sklearn.cluster import KMeans
-from sklearn.datasets import load_digits
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import scale
 
 
 class SimpleKMeans():
@@ -24,11 +21,11 @@ class SimpleKMeans():
         estimator.fit(data.X)
         print('%-9s\t%.2fs\t%i\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f\t%.3f'
               % (name, (time() - t0), estimator.inertia_,
-                 metrics.homogeneity_score(self.data.y, estimator.labels_),
-                 metrics.completeness_score(self.data.y, estimator.labels_),
-                 metrics.v_measure_score(self.data.y, estimator.labels_),
-                 metrics.adjusted_rand_score(self.data.y, estimator.labels_),
-                 metrics.adjusted_mutual_info_score(self.data.y, estimator.labels_)))
+                 metrics.homogeneity_score(data.y, estimator.labels_),
+                 metrics.completeness_score(data.y, estimator.labels_),
+                 metrics.v_measure_score(data.y, estimator.labels_),
+                 metrics.adjusted_rand_score(data.y, estimator.labels_),
+                 metrics.adjusted_mutual_info_score(data.y, estimator.labels_)))
 
     def fit(self, X, y):
 
